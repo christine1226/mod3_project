@@ -10,42 +10,6 @@ const counterElem = document.querySelector('#counter')
 
 
 
-// toggle page functions
-newGameBtn.addEventListener('click', toggleGameSpace)
-const highScoresBtn = document.getElementById('highscore-button')
-highScoresBtn.addEventListener('click', toggleScoreBoard)
-function toggleScoreBoard(e) {
-  welcomePage.style.display = 'none'
-  highScorePage.style.display = 'block'
-}
-function toggleGameSpace(e) {
-  welcomePage.style.display = 'none'
-  gameSpace.style.display = 'block'
-}
-
-
-
-//timer
-const counter = {
-  seconds: 15,
-  start() {
-    this.id = setInterval(() => {
-      this.seconds -= 1
-      if (this.seconds === 0) {
-        this.stop()
-      }
-      counterElem.innerHTML = `${this.seconds}`
-    }, 1000)
-  },
-  stop() {
-    clearInterval(this.id)
-    counterElem.innerHTML = '0'
-  }
-}
-// counter.start()
-
-
-
 //function randomly selects time between an amount of time
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -66,4 +30,40 @@ function glow() {
   setTimeout(() => {
     randBox.classList.remove('light');},
     time)
+  }
+
+// toggle page functions
+newGameBtn.addEventListener('click', toggleGameSpace)
+const highScoresBtn = document.getElementById('highscore-button')
+highScoresBtn.addEventListener('click', toggleScoreBoard)
+
+function toggleGameSpace(e) {
+  welcomePage.style.display = 'none'
+  gameSpace.style.display = 'block'
+  counter.start()
 }
+
+function toggleScoreBoard(e) {
+  welcomePage.style.display = 'none'
+  highScorePage.style.display = 'block'
+}
+
+//timer
+const counter = {
+  seconds: 20,
+  start() {
+    this.id = setInterval(() => {
+      this.seconds -= 1
+      if (this.seconds === 0) {
+        this.stop()
+      }
+      glow()
+      counterElem.innerHTML = `${this.seconds}`
+    }, 1000)
+  },
+  stop() {
+    clearInterval(this.id)
+    counterElem.innerHTML = '0'
+  }
+}
+// counter.start()

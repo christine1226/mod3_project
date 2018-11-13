@@ -13,6 +13,18 @@ h1 {
   letter-spacing: 0.1rem;
 }
 
+h1.highscore-title {
+  padding-top: 50px;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-style: bold;
+  font-size: 65px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
 .main-wrapper {
   background-image: url('../image/dark.jpeg');
   width: 100%;
@@ -166,4 +178,39 @@ animation-duration: .3s;}
 @keyframes box-transition {
    from {background-color: #E5E5E5;}
    to {background-color: black;}
+}
+
+div.highscore-box {
+  width: 400px;
+  height: 270px;
+  display: grid;
+  margin: auto;
+  margin-bottom: 40px;
+  overflow: scroll;
+}
+
+.highscore-list {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 20px;
+  width: 85%;
+  letter-spacing: 0.2rem;
+  list-style: none;
+  line-height: 2rem;
+}
+
+#main-menu-button {
+  display: block;
+  width: 20%;
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: white;
+  padding: 0.8em 0;
+  border-radius: 3em;
+  margin: 0 auto 0.9em;
+  font-weight: 300;
+  border: 2px solid white;
+  text-transform: uppercase;
+  cursor: pointer;
 }
