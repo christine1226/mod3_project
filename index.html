@@ -9,25 +9,39 @@
   </head>
   <body>
     <div class="main-wrapper">
-      <h2 id='counter'>
-        0
-      </h2>
-      <center><h1>GAME TITLE</h1></center>
-      <div class="btn-container">
-        <center><button id="new-game" type="button">New Game</button></center>
+      <!-- Welcome -->
+      <div class="welcome-page">
+        <center><h1>GAME TITLE</h1></center>
+        <div class="btn-container">
+          <button id="new-game" type="button">New Game</button>
+          <button id="highscore-button" type="button">Score Board</button>
         </div>
-
-
-
-
-
-        <div class="container">
-          <button class="box1 tpbl-circle gm-menu-logo-bg"></button>
-          <button class="box2"></button>
-          <button class="box3"></button>
-          <button class="box4"></button>
+      </div>
+      <!-- scoreboard -->
+      <div class="highscore-page" style="display: none;">
+        <h1>High Score</h1>
+      </div>
+      <!-- Game Space -->
+      <div class="game-space" style="display: none;">
+        <div id="game-detail">
+          <h2 id='counter'>
+            0
+          </h2>
+          <h2 id="current-level">
+            Level <span>1</span>
+          </h2>
         </div>
-
+        <div class="button-container">
+          <button class="box box1"></button>
+          <button class="box box2"></button>
+          <button class="box box3"></button>
+          <button class="box box4"></button>
+        </div>
+      </div>
+      <!-- Game over -->
+      <div class="game-over-page" style="display: none;">
+        <h1>You lose!</h1>
+      </div>
 
     </div>
     <script src="index.js"></script>
