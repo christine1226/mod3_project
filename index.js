@@ -7,8 +7,9 @@ let gameSpace = document.querySelector('.game-space')
 let gameOverPage = document.querySelector('.game-over-page')
 let highScorePage = document.querySelector('.highscore-page')
 const counterElem = document.querySelector('#counter')
-
-
+const highScoresBtn = document.getElementById('highscore-button')
+const mainMenuBtn = document.querySelector('#main-menu-button')
+const buttonCon = document.querySelector('.button-container')
 
 //function randomly selects time between an amount of time
 function randomTime(min, max) {
@@ -34,18 +35,37 @@ function glow() {
 
 // toggle page functions
 newGameBtn.addEventListener('click', toggleGameSpace)
-const highScoresBtn = document.getElementById('highscore-button')
 highScoresBtn.addEventListener('click', toggleScoreBoard)
+mainMenuBtn.addEventListener('click', toggleWelcomePage)
 
 function toggleGameSpace(e) {
   welcomePage.style.display = 'none'
   gameSpace.style.display = 'block'
   counter.start()
+
+  document.addEventListener('keydown', buttonHandler)
 }
 
 function toggleScoreBoard(e) {
   welcomePage.style.display = 'none'
   highScorePage.style.display = 'block'
+}
+
+function toggleWelcomePage(e) {
+  welcomePage.style.display = 'block'
+  highScorePage.style.display = 'none'
+}
+
+function buttonHandler(e) {
+  for (const button of buttonCon.children) {
+    let btnIsGlowing = button.classList
+    // debugger
+    if (btnIsGlowing.contains('light')) {
+      if (e.which === Number(button.dataset.key)) {
+        console.log('YOU PRESSED THE RIGHT KEY')
+      }
+    }
+  }
 }
 
 //timer
