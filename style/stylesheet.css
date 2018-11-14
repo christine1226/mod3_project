@@ -1,10 +1,7 @@
 body {
   background-color: #202020;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h1 {
   padding-top: 150px;
   font-family: 'Orbitron', sans-serif;
@@ -14,7 +11,7 @@ h1 {
   width: 100%;
   text-align: center;
   letter-spacing: 0.1rem;
-<<<<<<< HEAD
+  text-shadow: 5px 5px 5px black;
 }
 
 h1.highscore-title {
@@ -27,8 +24,7 @@ h1.highscore-title {
   text-align: center;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
+  text-shadow: 2px 2px 2px black;
 }
 .main-wrapper {
   background-image: url('../image/dark.jpeg');
@@ -39,28 +35,20 @@ h1.highscore-title {
   top:50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
-#new-game {
+.game-btn {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
-#new-game:hover {
+.game-btn:hover {
   background-color: #909090;
   color: white;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
-#new-game {
+.game-btn {
   display: block;
   width: 50%;
   background: none;
@@ -75,36 +63,12 @@ h1.highscore-title {
   text-transform: uppercase;
   cursor: pointer;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
-#highscore-button {
-  display: block;
-  width: 50%;
-  background: none;
-  border: none;
-  font-size: 1em;
-  color: white;
-  padding: 0.8em 0;
-  border-radius: 3em;
-  margin: 0 auto 0.9em;
-  font-weight: 300;
-  border: 2px solid white;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-<<<<<<< HEAD
 
 .button-container {
   padding-top: 200px;
   margin-left: 300px;
 
-=======
-.button-container {
-  padding-top: 200px;
-  margin-left: 300px;
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
   transform: rotateZ(45deg);
   width: 10px;
   display: grid;
@@ -116,53 +80,55 @@ h1.highscore-title {
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 2;
-  border: solid;
+  border: transparent;
   background-color: #F9C22E;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 .box2 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  border: solid;
+  border: transparent;
   background-color: #F4442E;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 .box3 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  border: solid;
+  border: transparent;
   background-color: #53B3CB;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 .box4 {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  border: solid;
+  border: transparent;
   background-color: #5C3B6D;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #game-detail {
   display: block;
   padding-top: 20px
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h2#counter {
   height: 100%;
   color: white;
@@ -173,10 +139,7 @@ h2#counter {
   position: relative;
   font-family: 'Orbitron', sans-serif;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h2#current-level {
   height: 100%;
   color: white;
@@ -188,7 +151,6 @@ h2#current-level {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 0.1rem;
 }
-<<<<<<< HEAD
 
 .box.light {
 animation-name: box-transition;
@@ -227,27 +189,9 @@ div.highscore-box {
   line-height: 2rem;
 }
 
-#main-menu-button {
-  display: block;
-  width: 20%;
-  background: none;
-  border: none;
-  font-size: 1em;
+.timesup-page {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
   color: white;
-  padding: 0.8em 0;
-  border-radius: 3em;
-  margin: 0 auto 0.9em;
-  font-weight: 300;
-  border: 2px solid white;
-  text-transform: uppercase;
-  cursor: pointer;
-=======
-.box.light {
-animation-name: box-transition;
-animation-duration: .3s;}
-
-@keyframes box-transition {
-   from {background-color: #E5E5E5;}
-   to {background-color: black;}
->>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 }
