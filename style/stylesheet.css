@@ -7,9 +7,10 @@ h1 {
   font-family: 'Orbitron', sans-serif;
   color: white;
   font-style: bold;
-  font-size: 70px;
+  font-size: 65px;
   width: 100%;
   text-align: center;
+  text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-shadow: 5px 5px 5px black;
 }
@@ -196,4 +197,12 @@ div.highscore-box {
   font-family: 'Orbitron', sans-serif;
   font-size: 20px;
   color: white;
+}
+
+.left-column {
+  float: left;
+}
+
+.right-column {
+  float: right;
 }

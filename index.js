@@ -1,6 +1,7 @@
 const newGameBtn = document.getElementById('new-game')
 const colorContainer = document.querySelector('.container')
 const box = document.querySelectorAll('.box')
+let scoreCon = document.querySelector('.highscore-list')
 let lastBox;
 let welcomePage = document.querySelector('.welcome-page')
 let gameSpace = document.querySelector('.game-space')
@@ -14,6 +15,7 @@ const mainPBtn = document.querySelector('#main-page-btn')
 const buttonCon = document.querySelector('.button-container')
 let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
+let countdownTimer = document.getElementById('countdown-timer')
 
 
 //function randomly selects time between an amount of time
@@ -56,12 +58,19 @@ function toggleGameSpace(e) {
 function toggleScoreBoard(e) {
   welcomePage.style.display = 'none'
   highScorePage.style.display = 'block'
+
+  fetch('http://localhost:3000/players')
+  .then(res => res.json())
+  .then(json => json.forEach(player => {
+    scoreCon.innerHTML += `<div class="left-column"><li class="player-list">${player.username}</li></div><div class="right-column"><li>${player.score}</li></div><br>`
+  }))
 }
 
 function toggleWelcomePage(e) {
   welcomePage.style.display = 'block'
   highScorePage.style.display = 'none'
   gameOverPage.style.display = 'none'
+  scoreCon.innerHTML = ""
 }
 
 function buttonHandler(e) {
