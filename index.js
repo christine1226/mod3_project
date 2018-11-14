@@ -120,8 +120,3 @@ function toggleGameOver(){
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
 }
-
-function toggleCountdown(){
-  gameSpace.style.display = 'none'
-  countdown.stlye.display = 'block'
-}

@@ -195,31 +195,3 @@ div.highscore-box {
   font-size: 20px;
   color: white;
 }
-
-.countdown {
-  display: block;
-  position: relative;
-  width: 1em;
-  height: 1em;
-  border: 1px solid;
-  overflow: hidden;
-  vertical-align: text-top;
-
-  &__numbers {
-    position: absolute;
-    width: 1em;
-    line-height: 1em;
-    text-align: center;
-    animation: count 3s steps(3);
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes count {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: -6em;
-  }
-}
