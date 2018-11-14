@@ -79,6 +79,7 @@ const counter = {
       this.seconds -= 1
       if (this.seconds === 0) {
         this.stop()
+        toggleTimesUpPage()
       }
       glow()
       counterElem.innerHTML = `${this.seconds}`
@@ -87,8 +88,6 @@ const counter = {
   stop() {
     clearInterval(this.id)
     counterElem.innerHTML = '0'
-
-    toggleTimesUpPage()
   }
 }
 // counter.start()
