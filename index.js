@@ -11,6 +11,9 @@ const counterElem = document.querySelector('#counter')
 const highScoresBtn = document.getElementById('highscore-button')
 const mainMenuBtn = document.querySelector('#main-menu-button')
 const buttonCon = document.querySelector('.button-container')
+let scores = document.querySelectorAll('.score-keeper')
+let userScore = 0
+
 
 //function randomly selects time between an amount of time
 function randomTime(min, max) {
@@ -25,7 +28,7 @@ function randomBox(box) {
 }
 
 function glow() {
-  const time = randomTime(90, 1000);
+  const time = 1000;
   const randBox = randomBox(box);
   let classs = randBox.classList
   classs.add('light');
@@ -44,7 +47,8 @@ function toggleGameSpace(e) {
   gameSpace.style.display = 'block'
   counter.start()
 
-  document.addEventListener('keydown', buttonHandler)
+  // document.addEventListener('keydown', buttonHandler)
+  buttonCon.addEventListener('click', clickHandler)
 }
 
 function toggleScoreBoard(e) {
@@ -57,21 +61,31 @@ function toggleWelcomePage(e) {
   highScorePage.style.display = 'none'
 }
 
-function buttonHandler(e) {
-  for (const button of buttonCon.children) {
-    let btnIsGlowing = button.classList
-    // debugger
-    if (btnIsGlowing.contains('light')) {
-      if (e.which === Number(button.dataset.key)) {
-        console.log('YOU PRESSED THE RIGHT KEY')
-      } else if (e.which !== Number(button.dataset.key)) {
-        // if you press the wrong key
-        // toggle to gameover page
-        // the counter also needs to stop
-        toggleGameOver()
-        counter.stop()
-      }
-    }
+// function buttonHandler(e) {
+//   for (const button of buttonCon.children) {
+//     let btnIsGlowing = button.classList
+//     // debugger
+//     if (btnIsGlowing.contains('light')) {
+//       if (e.which === Number(button.dataset.key)) {
+//         console.log('YOU PRESSED THE RIGHT KEY')
+//       } else if (e.which !== Number(button.dataset.key)) {
+//         // if you press the wrong key
+//         // toggle to gameover page
+//         // the counter also needs to stop
+//         toggleGameOver()
+//         counter.stop()
+//       }
+//     }
+//   }
+// }
+
+function clickHandler(e) {
+  if (e.target.classList.contains('light')) {
+    userScore += 1
+    scores.forEach(score => score.innerHTML = userScore)
+  } else {
+    toggleGameOver()
+    counter.stop()
   }
 }
 
