@@ -66,6 +66,7 @@ function buttonHandler(e) {
         console.log('YOU PRESSED THE RIGHT KEY')
       } else{
         toggleGameOver()
+        counter.stop()
       }
     }
   }

@@ -153,7 +153,7 @@ h2#current-level {
 
 .box.light {
 animation-name: box-transition;
-animation-duration: .3s;}
+animation-duration: 1s;}
 /* #counter {
    background-color: black;
    color: white;
