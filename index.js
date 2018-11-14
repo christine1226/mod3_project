@@ -6,6 +6,7 @@ let welcomePage = document.querySelector('.welcome-page')
 let gameSpace = document.querySelector('.game-space')
 let gameOverPage = document.querySelector('.game-over-page')
 let highScorePage = document.querySelector('.highscore-page')
+let timesUpPage = document.querySelector('.timesup-page')
 const counterElem = document.querySelector('#counter')
 const highScoresBtn = document.getElementById('highscore-button')
 const mainMenuBtn = document.querySelector('#main-menu-button')
@@ -63,6 +64,8 @@ function buttonHandler(e) {
     if (btnIsGlowing.contains('light')) {
       if (e.which === Number(button.dataset.key)) {
         console.log('YOU PRESSED THE RIGHT KEY')
+      } else {
+        console.log('YOU PRESSED THE WRONG KEY')
       }
     }
   }
@@ -84,6 +87,13 @@ const counter = {
   stop() {
     clearInterval(this.id)
     counterElem.innerHTML = '0'
+
+    toggleTimesUpPage()
   }
 }
 // counter.start()
+
+function toggleTimesUpPage() {
+  gameSpace.style.display = 'none'
+  timesUpPage.style.display = 'block'
+}

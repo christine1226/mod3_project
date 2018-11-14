@@ -11,6 +11,7 @@ h1 {
   width: 100%;
   text-align: center;
   letter-spacing: 0.1rem;
+  text-shadow: 5px 5px 5px black;
 }
 
 h1.highscore-title {
@@ -23,6 +24,7 @@ h1.highscore-title {
   text-align: center;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+  text-shadow: 2px 2px 2px black;
 }
 
 .main-wrapper {
@@ -34,19 +36,20 @@ h1.highscore-title {
   top:50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px;
 }
 
-#new-game {
+.game-btn {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
 
-#new-game:hover {
+.game-btn:hover {
   background-color: #909090;
   color: white;
 }
 
-#new-game {
+.game-btn {
   display: block;
   width: 50%;
   background: none;
@@ -62,7 +65,7 @@ h1.highscore-title {
   cursor: pointer;
 }
 
-#highscore-button {
+.game-btn {
   display: block;
   width: 50%;
   background: none;
@@ -95,10 +98,12 @@ h1.highscore-title {
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 2;
-  border: solid;
+  border: transparent;
   background-color: #F9C22E;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 
 .box2 {
@@ -106,10 +111,12 @@ h1.highscore-title {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  border: solid;
+  border: transparent;
   background-color: #F4442E;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 
 .box3 {
@@ -117,10 +124,12 @@ h1.highscore-title {
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  border: solid;
+  border: transparent;
   background-color: #53B3CB;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 
 .box4 {
@@ -128,10 +137,12 @@ h1.highscore-title {
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  border: solid;
+  border: transparent;
   background-color: #5C3B6D;
   height: 100px;
   width: 100px;
+  margin: 3px;
+  box-shadow: 5px 5px 5px;
 }
 
 #game-detail {
@@ -199,7 +210,7 @@ div.highscore-box {
   line-height: 2rem;
 }
 
-#main-menu-button {
+.game-btn {
   display: block;
   width: 20%;
   background: none;
@@ -213,4 +224,11 @@ div.highscore-box {
   border: 2px solid white;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.timesup-page {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  color: white;
 }
