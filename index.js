@@ -64,8 +64,12 @@ function buttonHandler(e) {
     if (btnIsGlowing.contains('light')) {
       if (e.which === Number(button.dataset.key)) {
         console.log('YOU PRESSED THE RIGHT KEY')
-      } else {
-        console.log('YOU PRESSED THE WRONG KEY')
+      } else if (e.which !== Number(button.dataset.key)) {
+        // if you press the wrong key
+        // toggle to gameover page
+        // the counter also needs to stop
+        toggleGameOver()
+        counter.stop()
       }
     }
   }
@@ -79,6 +83,7 @@ const counter = {
       this.seconds -= 1
       if (this.seconds === 0) {
         this.stop()
+        toggleTimesUpPage()
       }
       glow()
       counterElem.innerHTML = `${this.seconds}`
@@ -87,8 +92,6 @@ const counter = {
   stop() {
     clearInterval(this.id)
     counterElem.innerHTML = '0'
-
-    toggleTimesUpPage()
   }
 }
 // counter.start()
@@ -96,4 +99,10 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
+}
+
+function toggleGameOver() {
+  counter.stop()
+  gameSpace.style.display = 'none'
+  gameOverPage.style.display = 'block'
 }
