@@ -10,6 +10,7 @@ let timesUpPage = document.querySelector('.timesup-page')
 const counterElem = document.querySelector('#counter')
 const highScoresBtn = document.getElementById('highscore-button')
 const mainMenuBtn = document.querySelector('#main-menu-button')
+const mainPBtn = document.querySelector('#main-page-btn')
 const buttonCon = document.querySelector('.button-container')
 let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
@@ -42,13 +43,14 @@ function glow() {
 newGameBtn.addEventListener('click', toggleCountdown)
 highScoresBtn.addEventListener('click', toggleScoreBoard)
 mainMenuBtn.addEventListener('click', toggleWelcomePage)
+mainPBtn.addEventListener('click', toggleWelcomePage)
 
 function toggleGameSpace(e) {
   welcomePage.style.display = 'none'
   gameSpace.style.display = 'block'
   counter.start()
 
-  // document.addEventListener('keydown', buttonHandler)
+  document.addEventListener('keydown', buttonHandler)
   buttonCon.addEventListener('click', clickHandler)
 }
 
@@ -60,33 +62,41 @@ function toggleScoreBoard(e) {
 function toggleWelcomePage(e) {
   welcomePage.style.display = 'block'
   highScorePage.style.display = 'none'
+  gameOverPage.style.display = 'none'
 }
 
-// function buttonHandler(e) {
-//   for (const button of buttonCon.children) {
-//     let btnIsGlowing = button.classList
-//     // debugger
-//     if (btnIsGlowing.contains('light')) {
-//       if (e.which === Number(button.dataset.key)) {
-//         console.log('YOU PRESSED THE RIGHT KEY')
-//       } else if (e.which !== Number(button.dataset.key)) {
-//         // if you press the wrong key
-//         // toggle to gameover page
-//         // the counter also needs to stop
-//         toggleGameOver()
-//         counter.stop()
-//       }
-//     }
-//   }
-// }
+function buttonHandler(e) {
+  for (const button of buttonCon.children) {
+    let btnIsGlowing = button.classList
+    // debugger
+    if (btnIsGlowing.contains('light')) {
+      if (e.which === Number(button.dataset.key)) {
+        userScore += 100
+        scores.forEach(score => score.innerHTML = userScore)
+      } else if (e.which !== Number(button.dataset.key)) {
+        // if you press the wrong key
+        // toggle to gameover page
+        // the counter also needs to stop
+        toggleGameOver()
+        // debugger
+        counter.stop()
+        userScore = 0
+        scores.forEach(score => score.innerHTML = userScore)
+      }
+    }
+  }
+}
 
 function clickHandler(e) {
   if (e.target.classList.contains('light')) {
-    userScore += 1
+    userScore += 100
     scores.forEach(score => score.innerHTML = userScore)
   } else {
     toggleGameOver()
+    // debugger
     counter.stop()
+    userScore = 0
+    scores.forEach(score => score.innerHTML = userScore)
   }
 }
 
@@ -106,7 +116,8 @@ const counter = {
   },
   stop() {
     clearInterval(this.id)
-    counterElem.innerHTML = '0'
+    this.seconds = 20
+    counterElem.innerHTML = '20'
   }
 }
 // counter.start()
@@ -119,4 +130,5 @@ function toggleTimesUpPage() {
 function toggleGameOver(){
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
+  // debugger
 }
