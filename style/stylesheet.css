@@ -26,7 +26,6 @@ h1.highscore-title {
   text-transform: uppercase;
   text-shadow: 2px 2px 2px black;
 }
-
 .main-wrapper {
   background-image: url('../image/dark.jpeg');
   width: 100%;
@@ -86,13 +85,11 @@ h1.highscore-title {
   margin-left: 300px;
 
   transform: rotateZ(45deg);
-  width: 100px;
-
+  width: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
-
 .box1 {
   grid-column-start: 1;
   grid-column-end: 1;
@@ -105,7 +102,6 @@ h1.highscore-title {
   margin: 3px;
   box-shadow: 5px 5px 5px;
 }
-
 .box2 {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -118,7 +114,6 @@ h1.highscore-title {
   margin: 3px;
   box-shadow: 5px 5px 5px;
 }
-
 .box3 {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -131,7 +126,6 @@ h1.highscore-title {
   margin: 3px;
   box-shadow: 5px 5px 5px;
 }
-
 .box4 {
   grid-column-start: 1;
   grid-column-end: 2;

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Orbitron|Rubik+Mono+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron|Rubik+Mono+One" rel="stylesheet">
     <link rel="stylesheet" href="./style/stylesheet.css">
     <title>Mod 3 Project</title>
   </head>
@@ -16,6 +16,7 @@
           <button id="new-game" class="game-btn" type="button">New Game</button>
           <button id="highscore-button" class="game-btn" type="button">Score Board</button>
         </div>
+<<<<<<< HEAD
       </div>
       <!-- scoreboard -->
       <div class="highscore-page" style="display: none;">
@@ -46,6 +47,18 @@
             <li>lorem</li>
             <li>lorem</li>
           </ul>
+=======
+
+
+
+
+
+        <div class="container">
+          <div class="box box1"></div>
+          <div class="box box2"></div>
+          <div class="box box3"></div>
+          <div class="box box4"></div>
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
         </div>
         <button id="main-menu-button" class="game-btn" type="button" >Main Menu</button>
       </div>
@@ -78,6 +91,67 @@
         <h1>Time's Up</h1>
         <p>You got <span>20000</span> points!</p>
         <button id="next-game-btn" class="game-btn">Next</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Rubik+Mono+One" rel="stylesheet">
+    <link rel="stylesheet" href="./style/stylesheet.css">
+    <title>Mod 3 Project</title>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- Welcome -->
+      <div class="welcome-page">
+        <center><h1>GAME TITLE</h1></center>
+        <div class="btn-container">
+          <button id="new-game" type="button">New Game</button>
+          <button id="highscore-button" type="button">Score Board</button>
+        </div>
+      </div>
+      <!-- scoreboard -->
+      <div class="highscore-page" style="display: none;">
+        <h1>High Score</h1>
+      </div>
+      <!-- Game Space -->
+      <div class="game-space" style="display: none;">
+        <div id="game-detail">
+          <h2 id='counter'>
+            0
+          </h2>
+          <h2 id="current-level">
+            Level <span>1</span>
+          </h2>
+          <h2 id="current-score">
+            Score <span>0</span>
+          </h2>
+        </div>
+        <div class="button-container">
+          <button class="box box1"></button>
+          <button class="box box2"></button>
+          <button class="box box3"></button>
+          <button class="box box4"></button>
+        </div>
+      </div>
+      <!-- Game over -->
+      <div class="game-over-page" style="display: none;">
+        <h1>You lose!</h1>
       </div>
     </div>
     <script src="index.js"></script>
