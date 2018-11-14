@@ -7,6 +7,9 @@ let gameSpace = document.querySelector('.game-space')
 let gameOverPage = document.querySelector('.game-over-page')
 let highScorePage = document.querySelector('.highscore-page')
 const counterElem = document.querySelector('#counter')
+const buttonCont = document.querySelector('.button-container')
+const scoreBoard = document.getElementById('current-score')
+  let score = 0;
 
 
 
@@ -67,3 +70,20 @@ function glow() {
     randBox.classList.remove('light');},
     time)
 }
+
+// function startGame() {
+//     scoreBoard.textContent = 0;
+//     timeUp = false;
+//     score = 0;
+//     peep();
+//     setTimeout(() => timeUp = true, 10000)
+//   }
+//
+// function select(e) {
+//     if(!e.isTrusted) return;
+//     score++;
+//     this.parentNode.classList.remove('light');
+//     scoreBoard.textContent = score;
+//   }
+//
+// box.forEach(box => box.addEventListener('click', select));
