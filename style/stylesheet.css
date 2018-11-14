@@ -1,7 +1,10 @@
 body {
   background-color: #202020;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h1 {
   padding-top: 150px;
   font-family: 'Orbitron', sans-serif;
@@ -11,6 +14,7 @@ h1 {
   width: 100%;
   text-align: center;
   letter-spacing: 0.1rem;
+<<<<<<< HEAD
 }
 
 h1.highscore-title {
@@ -23,8 +27,9 @@ h1.highscore-title {
   text-align: center;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 }
-
 .main-wrapper {
   background-image: url('../image/dark.jpeg');
   width: 100%;
@@ -35,17 +40,26 @@ h1.highscore-title {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #new-game {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #new-game:hover {
   background-color: #909090;
   color: white;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #new-game {
   display: block;
   width: 50%;
@@ -61,7 +75,10 @@ h1.highscore-title {
   text-transform: uppercase;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #highscore-button {
   display: block;
   width: 50%;
@@ -77,19 +94,23 @@ h1.highscore-title {
   text-transform: uppercase;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 .button-container {
   padding-top: 200px;
   margin-left: 300px;
 
+=======
+.button-container {
+  padding-top: 200px;
+  margin-left: 300px;
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
   transform: rotateZ(45deg);
-  width: 100px;
-
+  width: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
-
 .box1 {
   grid-column-start: 1;
   grid-column-end: 1;
@@ -100,7 +121,6 @@ h1.highscore-title {
   height: 100px;
   width: 100px;
 }
-
 .box2 {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -111,7 +131,6 @@ h1.highscore-title {
   height: 100px;
   width: 100px;
 }
-
 .box3 {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -122,7 +141,6 @@ h1.highscore-title {
   height: 100px;
   width: 100px;
 }
-
 .box4 {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -133,12 +151,18 @@ h1.highscore-title {
   height: 100px;
   width: 100px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 #game-detail {
   display: block;
   padding-top: 20px
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h2#counter {
   height: 100%;
   color: white;
@@ -149,7 +173,10 @@ h2#counter {
   position: relative;
   font-family: 'Orbitron', sans-serif;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 h2#current-level {
   height: 100%;
   color: white;
@@ -161,6 +188,7 @@ h2#current-level {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 0.1rem;
 }
+<<<<<<< HEAD
 
 .box.light {
 animation-name: box-transition;
@@ -213,4 +241,13 @@ div.highscore-box {
   border: 2px solid white;
   text-transform: uppercase;
   cursor: pointer;
+=======
+.box.light {
+animation-name: box-transition;
+animation-duration: .3s;}
+
+@keyframes box-transition {
+   from {background-color: #E5E5E5;}
+   to {background-color: black;}
+>>>>>>> 1ce8a596e5ffb91267b105bca16d3de77c725891
 }
