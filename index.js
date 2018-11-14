@@ -40,7 +40,7 @@ function glow() {
   }
 
 // toggle page functions
-newGameBtn.addEventListener('click', toggleCountdown)
+newGameBtn.addEventListener('click', toggleGameSpace)
 highScoresBtn.addEventListener('click', toggleScoreBoard)
 mainMenuBtn.addEventListener('click', toggleWelcomePage)
 mainPBtn.addEventListener('click', toggleWelcomePage)
