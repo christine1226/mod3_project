@@ -1,6 +1,7 @@
 const newGameBtn = document.getElementById('new-game')
 const mainPBtn = document.querySelector('#main-page-btn')
 const mainMenuBtn = document.querySelector('#main-menu-button')
+const menuBtn = document.querySelector('#menu-button')
 const highScoresBtn = document.getElementById('highscore-button')
 const colorContainer = document.querySelector('.container')
 const buttonCon = document.querySelector('.button-container')
@@ -47,6 +48,7 @@ newGameBtn.addEventListener('click', toggleCountdownPage)
 highScoresBtn.addEventListener('click', toggleScoreBoard)
 mainMenuBtn.addEventListener('click', toggleWelcomePage)
 mainPBtn.addEventListener('click', toggleWelcomePage)
+menuBtn.addEventListener('click', toggleWelcomePage)
 
 function toggleCountdownPage(e) {
   welcomePage.style.display = 'none'
@@ -90,6 +92,8 @@ function toggleWelcomePage(e) {
   welcomePage.style.display = 'block'
   highScorePage.style.display = 'none'
   gameOverPage.style.display = 'none'
+  timesUpPage.style.display = 'none'
+
   scoreCon.innerHTML = ""
   userInput.firstElementChild.value = ""
   userScore = 0
@@ -106,8 +110,8 @@ function buttonHandler(e) {
       } else if (e.which !== Number(button.dataset.key)) {
         toggleGameOver()
         counter.stop()
-        userScore = 0
-        scores.forEach(score => score.innerHTML = userScore)
+        // userScore = 0
+        // scores.forEach(score => score.innerHTML = userScore)
       }
     }
   }
@@ -150,21 +154,22 @@ function toggleGameOver() {
 
 //timer
 const counter = {
-  seconds: 5,
-  start() {
-    this.id = setInterval(() => {
+  seconds: 20,
+    start() {
+      this.id = setInterval(() => {
       this.seconds -= 1
-      if (this.seconds === 0) {
-        this.stop()
-        toggleTimesUpPage()
-      }
-      glow()
       counterElem.innerHTML = `${this.seconds}`
-    }, 1000)
-  },
-  stop() {
-    clearInterval(this.id)
-    this.seconds = 5
-    counterElem.innerHTML = '5'
-  }
+        if (this.seconds === 0) {
+          this.stop()
+          toggleTimesUpPage()
+        }
+      }, 1000)
+      setInterval(glow, 1000)
+
+    },
+    stop() {
+      clearInterval(this.id)
+      this.seconds = 20
+      counterElem.innerHTML = '20'
+    }
 }

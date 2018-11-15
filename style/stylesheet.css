@@ -31,6 +31,11 @@ h1.highscore-title {
 h1.title {
   padding-top: 60px;
 }
+
+h1#countdown-timer {
+  padding-top: 50px;
+}
+
 .main-wrapper {
   background-image: url('../image/dark.jpeg');
   width: 100%;
@@ -234,6 +239,18 @@ p {
   font-family: 'Orbitron', sans-serif;
   color: white;
   font-size: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-shadow: 5px 5px 5px black;
+}
+
+#game-start {
+  padding-top: 150px;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 40px;
   width: 100%;
   text-align: center;
   text-transform: uppercase;

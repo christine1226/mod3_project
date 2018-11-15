@@ -19,6 +19,9 @@
       </div>
       <!-- Countdown page -->
       <div class="countdown-page" style="display: none;">
+        <div id="game-start">
+          <p>Game Start In...</p>
+        </div>
         <h1 id="countdown-timer">3</h1>
       </div>
       <!-- scoreboard -->
@@ -29,7 +32,7 @@
 
           </ul>
         </div>
-        <button id="main-menu-button" class="game-btn" type="button" >Main Menu</button>
+        <button id="main-menu-button" class="game-btn" type="button">Main Menu</button>
       </div>
       <!-- Game Space -->
       <div class="game-space" style="display: none;">
@@ -63,27 +66,22 @@
       <!-- Game over -->
       <div class="game-over-page" style="display: none;">
         <h1 class="title">Game Over</h1>
-        <p>You lose!</p>
         <p><span class="score-keeper">0</span> points!</p>
         <div class="username-input-con">
           <form class="username-input">
-            <input class="user" type="text" placeholder="username">
+            <input class="user" type="text" placeholder="input username">
             <input class="game-btn"type="submit" name="submit" value="Submit">
           </form>
         </div>
+        <p>OR</p>
         <button id="main-page-btn"class="game-btn" type="button" >Try Again</button>
       </div>
       <!-- times up page -->
       <div class="timesup-page" style="display: none;">
         <h1 class="title">Time's Up</h1>
         <p>You got <span class="score-keeper">0</span> points!</p>
-        <div class="username-input-con">
-          <form class="username-input">
-            <input class="user" type="text" placeholder="username">
-          </form>
-        </div>
-        <button id="next-game-btn" class="game-btn">Next</button>
-      </div>
+      <button id="next-game-btn" class="game-btn">Next</button>
+      <button id="menu-button" class="game-btn" type="button">Main Menu</button>
     </div>
     <script src="index.js"></script>
   </body>
