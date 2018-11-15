@@ -17,6 +17,10 @@
           <button id="highscore-button" class="game-btn" type="button">Score Board</button>
         </div>
       </div>
+      <!-- Countdown page -->
+      <div class="countdown-page" style="display: none;">
+        <h1 id="countdown-timer">3</h1>
+      </div>
       <!-- scoreboard -->
       <div class="highscore-page" style="display: none;">
         <h1 class="highscore-title">High Score</h1>
@@ -49,12 +53,20 @@
       </div>
       <!-- Game over -->
       <div class="game-over-page" style="display: none;">
-        <h1>You lose!</h1>
+        <h1 class="title">Game Over</h1>
+        <p>You lose!</p>
+        <p><span class="score-keeper">0</span> points!</p>
+        <div class="username-input-con">
+          <form class="username-input">
+            <input class="user" type="text" placeholder="username">
+            <input class="game-btn"type="submit" name="submit" value="Submit">
+          </form>
+        </div>
         <button id="main-page-btn"class="game-btn" type="button" >Try Again</button>
       </div>
       <!-- times up page -->
       <div class="timesup-page" style="display: none;">
-        <h1>Time's Up</h1>
+        <h1 class="title">Time's Up</h1>
         <p>You got <span class="score-keeper">0</span> points!</p>
         <button id="next-game-btn" class="game-btn">Next</button>
       </div>
