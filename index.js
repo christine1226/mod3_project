@@ -15,13 +15,14 @@ const mainPBtn = document.querySelector('#main-page-btn')
 const buttonCon = document.querySelector('.button-container')
 let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
-let countdownTimer = document.getElementById('countdown-timer')
+let countdown = document.querySelector('.countdown')
+let userInput = document.querySelector('.username-input')
 
 
-//function randomly selects time between an amount of time
-function randomTime(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
-}
+// //function randomly selects time between an amount of time
+// function randomTime(min, max) {
+//   return Math.round(Math.random() * (max - min) + min);
+// }
 
 //function selects a box randomly
 function randomBox(box) {
@@ -61,6 +62,7 @@ function toggleScoreBoard(e) {
 
   fetch('http://localhost:3000/players')
   .then(res => res.json())
+  .then(res => res.sort((a, b) => b.score - a.score))
   .then(json => json.forEach(player => {
     scoreCon.innerHTML += `<div class="left-column"><li class="player-list">${player.username}</li></div><div class="right-column"><li>${player.score}</li></div><br>`
   }))
@@ -110,7 +112,7 @@ function clickHandler(e) {
 
 //timer
 const counter = {
-  seconds: 20,
+  seconds: 5,
   start() {
     this.id = setInterval(() => {
       this.seconds -= 1
@@ -125,7 +127,7 @@ const counter = {
   stop() {
     clearInterval(this.id)
     this.seconds = 20
-    counterElem.innerHTML = '20'
+    counterElem.innerHTML = '5'
   }
 }
 // counter.start()
@@ -133,11 +135,27 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
+
+  userInput.addEventListener('submit', (e)=>{
+    let username = event.target.firstElementChild.value
+    let finalScore = Number(scores[1].innerText)
+
+    fetch('http://localhost:3000/players', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        username: username,
+        score: finalScore
+      })
+    })
+  })
 }
 
-function toggleGameOver() {
-  counter.stop()
+function toggleGameOver(){
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
-  // debugger
 }
+
+// window.addEventListener('keydown', (e)=>{
+//   console.log(e.keyCode)
+// })
