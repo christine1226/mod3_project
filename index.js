@@ -1,6 +1,7 @@
 const newGameBtn = document.getElementById('new-game')
 const colorContainer = document.querySelector('.container')
 const box = document.querySelectorAll('.box')
+let scoreCon = document.querySelector('.highscore-list')
 let lastBox;
 let welcomePage = document.querySelector('.welcome-page')
 let gameSpace = document.querySelector('.game-space')
@@ -15,6 +16,7 @@ const buttonCon = document.querySelector('.button-container')
 let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
 let countdown = document.querySelector('.countdown')
+let userInput = document.querySelector('.username-input')
 
 
 // //function randomly selects time between an amount of time
@@ -57,12 +59,20 @@ function toggleGameSpace(e) {
 function toggleScoreBoard(e) {
   welcomePage.style.display = 'none'
   highScorePage.style.display = 'block'
+
+  fetch('http://localhost:3000/players')
+  .then(res => res.json())
+  .then(res => res.sort((a, b) => b.score - a.score))
+  .then(json => json.forEach(player => {
+    scoreCon.innerHTML += `<div class="left-column"><li class="player-list">${player.username}</li></div><div class="right-column"><li>${player.score}</li></div><br>`
+  }))
 }
 
 function toggleWelcomePage(e) {
   welcomePage.style.display = 'block'
   highScorePage.style.display = 'none'
   gameOverPage.style.display = 'none'
+  scoreCon.innerHTML = ""
 }
 
 function buttonHandler(e) {
@@ -102,7 +112,7 @@ function clickHandler(e) {
 
 //timer
 const counter = {
-  seconds: 20,
+  seconds: 5,
   start() {
     this.id = setInterval(() => {
       this.seconds -= 1
@@ -117,7 +127,7 @@ const counter = {
   stop() {
     clearInterval(this.id)
     this.seconds = 20
-    counterElem.innerHTML = '20'
+    counterElem.innerHTML = '5'
   }
 }
 // counter.start()
@@ -125,10 +135,27 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
+
+  userInput.addEventListener('submit', (e)=>{
+    let username = event.target.firstElementChild.value
+    let finalScore = Number(scores[1].innerText)
+
+    fetch('http://localhost:3000/players', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        username: username,
+        score: finalScore
+      })
+    })
+  })
 }
 
 function toggleGameOver(){
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
-  // debugger
 }
+
+// window.addEventListener('keydown', (e)=>{
+//   console.log(e.keyCode)
+// })
