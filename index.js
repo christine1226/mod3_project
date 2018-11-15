@@ -17,28 +17,52 @@ let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
 let countdown = document.querySelector('.countdown')
 let userInput = document.querySelector('.username-input')
+let myLevel = "1"
 
 
-// //function randomly selects time between an amount of time
+//function randomly selects time between an amount of time
 // function randomTime(min, max) {
 //   return Math.round(Math.random() * (max - min) + min);
 // }
 
 //function selects a box randomly
-function randomBox(box) {
-  const idx = Math.floor(Math.random() * box.length);
-  const boxes = box[idx];
-  return boxes
+// function randomBox(box) {
+//   const idx = Math.floor(Math.random() * box.length);
+//   const boxes = box[idx];
+//   return boxes
+// }
+
+for (var i=1e6, lookupTable=[]; i--;) {
+  lookupTable.push(Math.floor(Math.random()*box.length));
+}
+function lookup() {
+  let idx = (++i >= lookupTable.length ? lookupTable[i=0] : lookupTable[i]);
+  return box[idx]
 }
 
+
+
+// function glow() {
+//   const time = 900;
+//   // const randBox = randomBox(box);
+//   const randBox = lookup()
+//   // let classs = randBox.classList
+//   // debugger
+//   let classs = randBox.classList
+//   classs.add('light');
+//   setTimeout(() => {
+//     randBox.classList.remove('light');},
+//     time)
+//   }
+
 function glow() {
-  const time = 1000;
+  const time = level[myLevel]['glowTime'];
   const randBox = randomBox(box);
   let classs = randBox.classList
   classs.add('light');
   setTimeout(() => {
-    randBox.classList.remove('light');},
-    time)
+    randBox.classList.remove('light');
+    }, time)
   }
 
 // toggle page functions
@@ -112,25 +136,27 @@ function clickHandler(e) {
 
 //timer
 const counter = {
-  seconds: 5,
+  seconds: 20,
+
   start() {
     this.id = setInterval(() => {
       this.seconds -= 1
+      counterElem.innerHTML = `${this.seconds}`
       if (this.seconds === 0) {
         this.stop()
         toggleTimesUpPage()
       }
-      glow()
-      counterElem.innerHTML = `${this.seconds}`
     }, 1000)
+    this.glowId = setInterval(glow, level[myLevel]['intervalTime'])
   },
+
   stop() {
     clearInterval(this.id)
+    clearInterval(this.glowId)
     this.seconds = 20
-    counterElem.innerHTML = '5'
+    counterElem.innerHTML = '20'
   }
-}
-// counter.start()
+ }
 
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
@@ -154,8 +180,23 @@ function toggleTimesUpPage() {
 function toggleGameOver(){
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
+  game.pause()
 }
 
-// window.addEventListener('keydown', (e)=>{
-//   console.log(e.keyCode)
-// })
+const audio = document.querySelector(`body > div > div.game-space > div.button-container > audio`);
+function playAudio(){
+  audio.play()
+}
+
+game = document.querySelector('body > div > div.welcome-page > div > audio')
+function gameAudio(){
+  game.play()
+  setTimeout(function () {
+    game.pause();
+}, 20000);
+}
+
+const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(4)`);
+function scoreAudio(){
+  highscore.play()
+}
