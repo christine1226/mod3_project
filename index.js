@@ -139,7 +139,7 @@ function toggleGameOver() {
 
   userInput.addEventListener('submit', (e) => {
     let username = event.target.firstElementChild.value
-    let finalScore = Number(scores[0].innerText)
+    let finalScore = Number(scores[2].innerText)
 
     fetch('http://localhost:3000/players', {
       method: 'POST',
@@ -154,7 +154,7 @@ function toggleGameOver() {
 
 //timer
 const counter = {
-  seconds: 10,
+  seconds: 20,
 
   start() {
     this.id = setInterval(() => {
