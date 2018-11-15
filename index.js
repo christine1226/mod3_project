@@ -19,7 +19,7 @@ const counterElem = document.querySelector('#counter')
 let userScore = 0
 let countdownTimer = document.getElementById('countdown-timer')
 let userInput = document.querySelector('.username-input')
-
+let myLevel = '4'
 
 //function randomly selects time between an amount of time
 // function randomTime(min, max) {
@@ -34,13 +34,13 @@ function randomBox(box) {
 }
 
 function glow() {
-  const time = 700;
+  const time = level[myLevel]['glowTime'];
   const randBox = randomBox(box);
   let classs = randBox.classList
   classs.add('light');
   setTimeout(() => {
-    randBox.classList.remove('light');},
-    time)
+    randBox.classList.remove('light');
+    }, time)
   }
 
 // toggle page functions
@@ -154,22 +154,24 @@ function toggleGameOver() {
 
 //timer
 const counter = {
-  seconds: 20,
-    start() {
-      this.id = setInterval(() => {
+  seconds: 10,
+
+  start() {
+    this.id = setInterval(() => {
       this.seconds -= 1
       counterElem.innerHTML = `${this.seconds}`
-        if (this.seconds === 0) {
-          this.stop()
-          toggleTimesUpPage()
-        }
-      }, 1000)
-      setInterval(glow, 1000)
+      if (this.seconds === 0) {
+        this.stop()
+        toggleTimesUpPage()
+      }
+    }, 1000)
+    this.glowId = setInterval(glow, level[myLevel]['intervalTime'])
+  },
 
-    },
-    stop() {
-      clearInterval(this.id)
-      this.seconds = 20
-      counterElem.innerHTML = '20'
-    }
-}
+  stop() {
+    clearInterval(this.id)
+    clearInterval(this.glowId)
+    this.seconds = 20
+    counterElem.innerHTML = '20'
+  }
+ }
