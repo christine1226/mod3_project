@@ -161,6 +161,7 @@ h2#current-level {
 .box.light {
 animation-name: box-transition;
 animation-duration: 0.8s;}
+
 /* #counter {
    background-color: black;
    color: white;
@@ -202,6 +203,7 @@ div.highscore-box {
   font-size: 20px;
   color: white;
 }
+
 
 .left-column {
   float: left;
