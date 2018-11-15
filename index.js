@@ -26,19 +26,19 @@ let myLevel = "1"
 // }
 
 //function selects a box randomly
-// function randomBox(box) {
-//   const idx = Math.floor(Math.random() * box.length);
-//   const boxes = box[idx];
-//   return boxes
-// }
+function randomBox(box) {
+  const idx = Math.floor(Math.random() * box.length);
+  const boxes = box[idx];
+  return boxes
+}
 
-for (var i=1e6, lookupTable=[]; i--;) {
-  lookupTable.push(Math.floor(Math.random()*box.length));
-}
-function lookup() {
-  let idx = (++i >= lookupTable.length ? lookupTable[i=0] : lookupTable[i]);
-  return box[idx]
-}
+// for (var i=1e6, lookupTable=[]; i--;) {
+//   lookupTable.push(Math.floor(Math.random()*box.length));
+// }
+// function lookup() {
+//   let idx = (++i >= lookupTable.length ? lookupTable[i=0] : lookupTable[i]);
+//   return box[idx]
+// }
 
 
 
@@ -199,4 +199,12 @@ function gameAudio(){
 const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(4)`);
 function scoreAudio(){
   highscore.play()
+}
+const main = document.querySelector(`body > div > div.highscore-page > audio`)
+function mainAudio(){
+  main.play()
+}
+const tryAgain = document.querySelector(`body > div > div.game-over-page > audio`)
+function tryAgainAudio(){
+  tryAgain.play()
 }

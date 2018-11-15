@@ -16,7 +16,7 @@
           <button id="new-game" class="game-btn" type="button" onclick="gameAudio()" src="audio/themiddle.mp3">New Game</button>
           <audio onclick="gameAudio()" src="audio/themiddle.mp3"></audio>
           <button onclick="scoreAudio()" id="highscore-button" class="game-btn" type="button">Score Board</button>
-          <audio onclick="scoreAudio()" src="audio/sound22.mp3"></audio>
+          <audio onclick="scoreAudio()" src="audio/click.wav"></audio>
         </div>
       </div>
 
@@ -29,7 +29,8 @@
 
           </ul>
         </div>
-        <button id="main-menu-button" class="game-btn" type="button" >Main Menu</button>
+        <button onclick="mainAudio()" id="main-menu-button" class="game-btn" type="button" >Main Menu</button>
+        <audio onclick="mainAudio()" src="audio/click.wav"></audio>
       </div>
       <!-- Game Space -->
       <div class="game-space" style="display: none;">
@@ -52,10 +53,10 @@
 
 
 
-        <audio onclick="playAudio()" data-key="37" src="audio/sound22.mp3"></audio>
-        <audio onclick="playAudio()" data-key="38" src="audio/sound22.mp3"></audio>
-        <audio onclick="playAudio()" data-key="39" src="audio/sound22.mp3"></audio>
-        <audio onclick="playAudio()" data-key="40" src="audio/sound22.mp3"></audio>
+        <audio onclick="playAudio()" data-key="37" src="audio/correct.wav"></audio>
+        <audio onclick="playAudio()" data-key="38" src="audio/correct.wav"></audio>
+        <audio onclick="playAudio()" data-key="39" src="audio/correct.wav"></audio>
+        <audio onclick="playAudio()" data-key="40" src="audio/correct.wav"></audio>
 
 
         </div>
@@ -63,7 +64,8 @@
       <!-- Game over -->
       <div class="game-over-page" style="display: none;">
         <h1>You lose!</h1>
-        <button id="main-page-btn"class="game-btn" type="button" >Try Again</button>
+        <button onclick="tryAgainAudio()" id="main-page-btn"class="game-btn" type="button" >Try Again</button>
+        <audio onclick="tryAgainAudio()" src="audio/click.wav"></audio>
       </div>
       <!-- times up page -->
       <div class="timesup-page" style="display: none;">
