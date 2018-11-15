@@ -1,24 +1,25 @@
 const newGameBtn = document.getElementById('new-game')
+const mainPBtn = document.querySelector('#main-page-btn')
+const mainMenuBtn = document.querySelector('#main-menu-button')
+const menuBtn = document.querySelector('#menu-button')
+const highScoresBtn = document.getElementById('highscore-button')
 const colorContainer = document.querySelector('.container')
+const buttonCon = document.querySelector('.button-container')
 const box = document.querySelectorAll('.box')
-let scoreCon = document.querySelector('.highscore-list')
 let lastBox;
+let scoreCon = document.querySelector('.highscore-list')
+let scores = document.querySelectorAll('.score-keeper')
 let welcomePage = document.querySelector('.welcome-page')
 let gameSpace = document.querySelector('.game-space')
 let gameOverPage = document.querySelector('.game-over-page')
 let highScorePage = document.querySelector('.highscore-page')
 let timesUpPage = document.querySelector('.timesup-page')
+let countdownPage = document.querySelector('.countdown-page')
 const counterElem = document.querySelector('#counter')
-const highScoresBtn = document.getElementById('highscore-button')
-const mainMenuBtn = document.querySelector('#main-menu-button')
-const mainPBtn = document.querySelector('#main-page-btn')
-const buttonCon = document.querySelector('.button-container')
-let scores = document.querySelectorAll('.score-keeper')
 let userScore = 0
-let countdown = document.querySelector('.countdown')
+let countdownTimer = document.getElementById('countdown-timer')
 let userInput = document.querySelector('.username-input')
-let myLevel = "1"
-
+let myLevel = '4'
 
 //function randomly selects time between an amount of time
 // function randomTime(min, max) {
@@ -66,13 +67,31 @@ function glow() {
   }
 
 // toggle page functions
-newGameBtn.addEventListener('click', toggleGameSpace)
+newGameBtn.addEventListener('click', toggleCountdownPage)
 highScoresBtn.addEventListener('click', toggleScoreBoard)
 mainMenuBtn.addEventListener('click', toggleWelcomePage)
 mainPBtn.addEventListener('click', toggleWelcomePage)
+menuBtn.addEventListener('click', toggleWelcomePage)
 
-function toggleGameSpace(e) {
+function toggleCountdownPage(e) {
   welcomePage.style.display = 'none'
+  countdownPage.style.display = 'block'
+
+  let countdownNum = 3
+  let interval = setInterval(() => {
+    countdownNum -= 1
+    countdownTimer.innerText = countdownNum
+      if (countdownNum === 0) {
+        clearInterval(interval)
+      }
+    }, 1000)
+    countdownTimer.innerText = 3
+  setTimeout(toggleGameSpace, 3000)
+}
+
+function toggleGameSpace() {
+  welcomePage.style.display = 'none'
+  countdownPage.style.display = 'none'
   gameSpace.style.display = 'block'
   counter.start()
 
@@ -96,26 +115,26 @@ function toggleWelcomePage(e) {
   welcomePage.style.display = 'block'
   highScorePage.style.display = 'none'
   gameOverPage.style.display = 'none'
+  timesUpPage.style.display = 'none'
+
   scoreCon.innerHTML = ""
+  userInput.firstElementChild.value = ""
+  userScore = 0
+  scores.forEach(score => score.innerHTML = userScore)
 }
 
 function buttonHandler(e) {
   for (const button of buttonCon.children) {
     let btnIsGlowing = button.classList
-    // debugger
     if (btnIsGlowing.contains('light')) {
       if (e.which === Number(button.dataset.key)) {
         userScore += 100
         scores.forEach(score => score.innerHTML = userScore)
       } else if (e.which !== Number(button.dataset.key)) {
-        // if you press the wrong key
-        // toggle to gameover page
-        // the counter also needs to stop
         toggleGameOver()
-        // debugger
         counter.stop()
-        userScore = 0
-        scores.forEach(score => score.innerHTML = userScore)
+        // userScore = 0
+        // scores.forEach(score => score.innerHTML = userScore)
       }
     }
   }
@@ -127,10 +146,7 @@ function clickHandler(e) {
     scores.forEach(score => score.innerHTML = userScore)
   } else {
     toggleGameOver()
-    // debugger
     counter.stop()
-    userScore = 0
-    scores.forEach(score => score.innerHTML = userScore)
   }
 }
 
@@ -161,10 +177,17 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
+}
 
-  userInput.addEventListener('submit', (e)=>{
+function toggleGameOver() {
+  counter.stop()
+  gameSpace.style.display = 'none'
+  gameOverPage.style.display = 'block'
+  game.pause()
+
+  userInput.addEventListener('submit', (e) => {
     let username = event.target.firstElementChild.value
-    let finalScore = Number(scores[1].innerText)
+    let finalScore = Number(scores[2].innerText)
 
     fetch('http://localhost:3000/players', {
       method: 'POST',
@@ -177,11 +200,11 @@ function toggleTimesUpPage() {
   })
 }
 
-function toggleGameOver(){
-  gameSpace.style.display = 'none'
-  gameOverPage.style.display = 'block'
-  game.pause()
-}
+// function toggleGameOver(){
+//   gameSpace.style.display = 'none'
+//   gameOverPage.style.display = 'block'
+//   game.pause()
+// }
 
 const audio = document.querySelector(`body > div > div.game-space > div.button-container > audio`);
 function playAudio(){
