@@ -19,12 +19,8 @@ const counterElem = document.querySelector('#counter')
 let userScore = 0
 let countdownTimer = document.getElementById('countdown-timer')
 let userInput = document.querySelector('.username-input')
-let myLevel = '4'
+let myLevel = '1'
 
-//function randomly selects time between an amount of time
-// function randomTime(min, max) {
-//   return Math.round(Math.random() * (max - min) + min);
-// }
 
 //function selects a box randomly
 function randomBox(box) {
@@ -33,28 +29,6 @@ function randomBox(box) {
   return boxes
 }
 
-// for (var i=1e6, lookupTable=[]; i--;) {
-//   lookupTable.push(Math.floor(Math.random()*box.length));
-// }
-// function lookup() {
-//   let idx = (++i >= lookupTable.length ? lookupTable[i=0] : lookupTable[i]);
-//   return box[idx]
-// }
-
-
-
-// function glow() {
-//   const time = 900;
-//   // const randBox = randomBox(box);
-//   const randBox = lookup()
-//   // let classs = randBox.classList
-//   // debugger
-//   let classs = randBox.classList
-//   classs.add('light');
-//   setTimeout(() => {
-//     randBox.classList.remove('light');},
-//     time)
-//   }
 
 function glow() {
   const time = level[myLevel]['glowTime'];
@@ -84,9 +58,9 @@ function toggleCountdownPage(e) {
       if (countdownNum === 0) {
         clearInterval(interval)
       }
-    }, 1000)
+    }, 500)
     countdownTimer.innerText = 3
-  setTimeout(toggleGameSpace, 3000)
+  setTimeout(toggleGameSpace, 1500)
 }
 
 function toggleGameSpace() {
@@ -95,13 +69,18 @@ function toggleGameSpace() {
   gameSpace.style.display = 'block'
   counter.start()
 
+  gameSong.currentTime = 0
+  gameSong.play()
+
   document.addEventListener('keydown', buttonHandler)
+  document.addEventListener('keyup', buttonHandle)
   buttonCon.addEventListener('click', clickHandler)
 }
 
 function toggleScoreBoard(e) {
   welcomePage.style.display = 'none'
   highScorePage.style.display = 'block'
+
 
   fetch('http://localhost:3000/players')
   .then(res => res.json())
@@ -123,22 +102,30 @@ function toggleWelcomePage(e) {
   scores.forEach(score => score.innerHTML = userScore)
 }
 
+var pressed = false;
 function buttonHandler(e) {
   for (const button of buttonCon.children) {
     let btnIsGlowing = button.classList
     if (btnIsGlowing.contains('light')) {
-      if (e.which === Number(button.dataset.key)) {
+      if (e.which === Number(button.dataset.key) && pressed === false) {
         userScore += 100
+        pressed = true
         scores.forEach(score => score.innerHTML = userScore)
+        playAudio()
       } else if (e.which !== Number(button.dataset.key)) {
         toggleGameOver()
         counter.stop()
-        // userScore = 0
-        // scores.forEach(score => score.innerHTML = userScore)
       }
     }
   }
 }
+function buttonHandle(e){
+  setTimeout(() => {
+    pressed = false;
+  }, 600)
+}
+
+
 
 function clickHandler(e) {
   if (e.target.classList.contains('light')) {
@@ -177,14 +164,14 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
-  game.pause()
+  gameSong.pause()
 }
 
 function toggleGameOver() {
   counter.stop()
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
-  game.pause()
+  gameSong.pause()
 
   userInput.addEventListener('submit', (e) => {
     let username = event.target.firstElementChild.value
@@ -201,11 +188,6 @@ function toggleGameOver() {
   })
 }
 
-// function toggleGameOver(){
-//   gameSpace.style.display = 'none'
-//   gameOverPage.style.display = 'block'
-//   game.pause()
-// }
 
 const audio = document.querySelector(`body > div > div.game-space > div.button-container > audio`);
 function playAudio(){
@@ -213,18 +195,11 @@ function playAudio(){
 }
 
 game = document.querySelector('body > div > div.welcome-page > div > audio')
-function gameAudio(){
-  setTimeout(function () {
-    game.currentTime = 0
-    game.play();
-}, 3000);
-
-//   setTimeout(function () {
-//     game.pause();
-// }, 30000);
+function newGame(){
+  game.play()
 }
 
-const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(4)`);
+const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(7)`);
 function scoreAudio(){
   highscore.play()
 }
@@ -248,3 +223,9 @@ const men = document.querySelector(`body > div > div.timesup-page > audio:nth-ch
 function menuBAudio(){
   men.play()
 }
+
+let middle = document.getElementById('middle')
+let onedance = document.getElementById('onedance')
+let iran = document.getElementById('iran')
+let song = [onedance, middle, iran]
+let gameSong = (song[Math.floor(Math.random() * song.length)])
