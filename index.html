@@ -14,7 +14,7 @@
         <h1>BLINK</h1>
         <div class="btn-container">
           <button id="new-game" class="game-btn" type="button" onclick="gameAudio()" src="audio/themiddle.mp3">New Game</button>
-          <audio onclick="gameAudio()" src="audio/themiddle.mp3"></audio>
+          <audio onclick="gameAudio()" src="audio/middle.mov"></audio>
           <button onclick="scoreAudio()" id="highscore-button" class="game-btn" type="button">Score Board</button>
           <audio onclick="scoreAudio()" src="audio/click.wav"></audio>
         </div>
@@ -51,17 +51,17 @@
           <h2>Score: <span class="score-keeper">0</span></h2>
         </div>
         <div class="button-container">
-          <button onclick="playAudio()" class="box box1" data-key="38"></button>
-          <button onclick="playAudio()" class="box box2" data-key="39"></button>
-          <button onclick="playAudio()" class="box box3" data-key="40"></button>
-          <button onclick="playAudio()" class="box box4" data-key="37"></button>
+          <button mousedown="playAudio()" onclick="playAudio()" class="box box1" data-key="38"></button>
+          <button mousedown="playAudio()" onclick="playAudio()" class="box box2" data-key="39"></button>
+          <button mousedown="playAudio()" onclick="playAudio()" class="box box3" data-key="40"></button>
+          <button mousedown="playAudio()" onclick="playAudio()" class="box box4" data-key="37"></button>
 
 
 
-        <audio onclick="playAudio()" data-key="37" src="audio/correct.wav"></audio>
-        <audio onclick="playAudio()" data-key="38" src="audio/correct.wav"></audio>
-        <audio onclick="playAudio()" data-key="39" src="audio/correct.wav"></audio>
-        <audio onclick="playAudio()" data-key="40" src="audio/correct.wav"></audio>
+        <audio mousedown="playAudio()" onclick="playAudio()" data-key="37" src="audio/correct.wav"></audio>
+        <audio mousedown="playAudio()" onclick="playAudio()" data-key="38" src="audio/correct.wav"></audio>
+        <audio mousedown="playAudio()" onclick="playAudio()" data-key="39" src="audio/correct.wav"></audio>
+        <audio mousedown="playAudio()" onclick="playAudio()" data-key="40" src="audio/correct.wav"></audio>
 
 
         </div>
@@ -73,7 +73,8 @@
         <div class="username-input-con">
           <form class="username-input">
             <input class="user" type="text" placeholder="input username">
-            <input class="game-btn"type="submit" name="submit" value="Submit">
+            <input onclick="submitAudio()" class="game-btn"type="submit" name="submit" value="Submit">
+            <audio onclick="submitAudio()" src="audio/click.wav"></audio>
           </form>
         </div>
         <p>OR</p>
@@ -84,8 +85,10 @@
       <div class="timesup-page" style="display: none;">
         <h1 class="title">Time's Up</h1>
         <p>You got <span class="score-keeper">0</span> points!</p>
-      <button id="next-game-btn" class="game-btn">Next</button>
-      <button id="menu-button" class="game-btn" type="button">Main Menu</button>
+      <button onclick="nextAudio()" id="next-game-btn" class="game-btn">Next</button>
+      <audio onclick="nextAudio()" src="audio/click.wav"></audio>
+      <button onclick="menuBAudio()" id="menu-button" class="game-btn" type="button">Main Menu</button>
+      <audio onclick="menuBAudio()" src="audio/click.wav"></audio>
     </div>
     <script src="level.js"></script>
     <script src="index.js"></script>
