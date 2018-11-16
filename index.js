@@ -17,8 +17,10 @@ let timesUpPage = document.querySelector('.timesup-page')
 let countdownPage = document.querySelector('.countdown-page')
 const counterElem = document.querySelector('#counter')
 let userScore = 0
+let currLevel = document.getElementById('current-level')
 let countdownTimer = document.getElementById('countdown-timer')
 let userInput = document.querySelector('.username-input')
+let nextBtn = document.getElementById('next-game-btn')
 let myLevel = '1'
 
 
@@ -70,6 +72,7 @@ function toggleGameSpace() {
   counter.start()
 
   gameSong.currentTime = 0
+  gameSong = (song[Math.floor(Math.random() * song.length)])
   gameSong.play()
 
   document.addEventListener('keydown', buttonHandler)
@@ -172,6 +175,8 @@ function toggleGameOver() {
   gameSpace.style.display = 'none'
   gameOverPage.style.display = 'block'
   gameSong.pause()
+  game.pause()
+  gameReset()
 
   userInput.addEventListener('submit', (e) => {
     let username = event.target.firstElementChild.value
@@ -227,5 +232,33 @@ function menuBAudio(){
 let middle = document.getElementById('middle')
 let onedance = document.getElementById('onedance')
 let iran = document.getElementById('iran')
-let song = [onedance, middle, iran]
+let bravo = document.getElementById('bravo')
+let inmyfeelins = document.getElementById('inmyfeelins')
+let prblms = document.getElementById('prblms')
+let ot = document.getElementById('otsong')
+let sonic = document.getElementById('sonic')
+let song = [onedance, middle, iran, bravo, inmyfeelins, ot, prblms, sonic]
 let gameSong = (song[Math.floor(Math.random() * song.length)])
+
+function randomSong() {
+  let rand = Math.floor(Math.random() * song.length)
+  return gameSong[song]
+}
+
+nextBtn.addEventListener('click', function(event) {
+  increaseGameSpeed()
+  // gameSpace.style.display = 'block'
+  timesUpPage.style.display = 'none'
+  currLevel.children[0].innerHTML = `${myLevel}`
+  toggleCountdownPage(event)
+  // gameSong.play()
+})
+
+function increaseGameSpeed() {
+  myLevel = String(Number(myLevel) + 1)
+}
+
+function gameReset() {
+  myLevel = '1'
+  currLevel.children[0].innerHTML = `${myLevel}`
+}
