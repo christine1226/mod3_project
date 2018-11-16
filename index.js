@@ -177,6 +177,7 @@ const counter = {
 function toggleTimesUpPage() {
   gameSpace.style.display = 'none'
   timesUpPage.style.display = 'block'
+  game.pause()
 }
 
 function toggleGameOver() {
@@ -213,10 +214,14 @@ function playAudio(){
 
 game = document.querySelector('body > div > div.welcome-page > div > audio')
 function gameAudio(){
-  game.play()
   setTimeout(function () {
-    game.pause();
-}, 20000);
+    game.currentTime = 0
+    game.play();
+}, 3000);
+
+//   setTimeout(function () {
+//     game.pause();
+// }, 30000);
 }
 
 const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(4)`);
@@ -230,4 +235,16 @@ function mainAudio(){
 const tryAgain = document.querySelector(`body > div > div.game-over-page > audio`)
 function tryAgainAudio(){
   tryAgain.play()
+}
+const next = document.querySelector(`body > div > div.timesup-page > audio`)
+function nextAudio(){
+  next.play()
+}
+const submit = document.querySelector(`body > div > div.game-over-page > div > form > audio`)
+function submitAudio(){
+  submit.play()
+}
+const men = document.querySelector(`body > div > div.timesup-page > audio:nth-child(6)`)
+function menuBAudio(){
+  men.play()
 }
