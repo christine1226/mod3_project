@@ -204,7 +204,7 @@ function newGame(){
   game.play()
 }
 
-const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(7)`);
+const highscore = document.querySelector(`body > div > div.welcome-page > div > audio:nth-child(13)`);
 function scoreAudio(){
   highscore.play()
 }
